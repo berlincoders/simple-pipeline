@@ -9,6 +9,7 @@ describe("Production Application Test", () => {
     const res = await request(herokuAppUrl)
       .get('/api/health') // Replace '/api/health' with the actual health check endpoint of your application
       .set('Accept', 'application/json');
+      
 
     // Expecting the status code of the response to be 200
     expect(res.statusCode).toEqual(200);
