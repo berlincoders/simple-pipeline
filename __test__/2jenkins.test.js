@@ -1,14 +1,5 @@
 const request = require('supertest');
-const app = require('../index');
 require('dotenv').config(); // Load environment variables
-
-describe("Get route", () => {
-  it("page should return hello world", async () => {
-    const res = await request(app).get("/");
-    expect(res.statusCode).toEqual(200);
-    expect(res.text).toEqual("\"Hello world\"");
-  });
-});
 
 describe("Jenkins Local Test", () => {
   it("should check if Jenkins is running locally on port 8080", async () => {
@@ -27,8 +18,4 @@ describe("Jenkins Local Test", () => {
 
     // You can add more assertions here to further verify if Jenkins is running correctly
   });
-});
-
-afterAll(async () => {
-  await app.close();
 });

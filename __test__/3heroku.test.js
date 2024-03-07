@@ -3,7 +3,7 @@ const request = require('supertest');
 describe("Production Application Test", () => {
   it("should check if the application is running on production", async () => {
     // Replace 'your-heroku-app-url' with the actual URL of your Heroku app
-    const herokuAppUrl = 'https://your-heroku-app-url';
+    const herokuAppUrl = process.env.HEROKU_APP_URL;
 
     // Sending a GET request to a specific endpoint of your application
     const res = await request(herokuAppUrl)
