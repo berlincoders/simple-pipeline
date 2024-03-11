@@ -1,14 +1,17 @@
 const request = require('supertest');
 require('dotenv').config(); // Load environment variables
 
-describe("Jenkins Local Test", () => {
-  it("should check if Jenkins is running locally on port 8080", async () => {
+describe("Jenkins Online Test", () => {
+  it("should check if Jenkins is running on the internet server", async () => {
     // Retrieve Jenkins username and password from environment variables
     const jenkinsUsername = process.env.JENKINS_USERNAME;
     const jenkinsPassword = process.env.JENKINS_PASSWORD;
 
+    // Retrieve Jenkins server URL from environment variables
+    const jenkinsURL = process.env.JENKINS_URL;
+
     // Sending a GET request to the root URL of Jenkins with authentication headers
-    const res = await request('http://localhost:8080')
+    const res = await request(jenkinsURL)
       .get('/')
       .auth(jenkinsUsername, jenkinsPassword) // Include authentication headers
       .set('Accept', 'text/html');
