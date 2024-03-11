@@ -1,5 +1,7 @@
 const request = require('supertest');
 
+require('dotenv').config(); // Load environment variablescl
+
 describe("Production Application Test", () => {
   it("should check if the application is running on production", async () => {
     // Retrieve test URL from environment variable
